@@ -26,9 +26,14 @@ const LocationInput = ({
           type="text"
           name="location"
           onChange={handleClick}
-          className="border border-solid border-b-gray-50 rounded-xl py-2"
+          className="border-1 border-solid rounded-xl px-4 py-2 mr-5"
         />
-        <button onClick={() => getlocation(location.location)}>Submit</button>
+        <button
+          className="bg-orange-100"
+          onClick={() => getlocation(location.location)}
+        >
+          Submit
+        </button>
       </form>
     </>
   );

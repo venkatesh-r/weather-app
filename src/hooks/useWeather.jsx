@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { weatherService } from "../services/weatherService";
 
-export const useWeather = () => {
+export const useWeather = (data) => {
   const [weatherData, setWeatherData] = useState();
   useEffect(() => {
-    weatherService().then((res) => {
+    weatherService(data).then((res) => {
       setWeatherData(res.data);
-      console.log(res.data);
     });
-  }, []);
+  }, [data]);
   return weatherData;
 };

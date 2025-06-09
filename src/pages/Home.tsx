@@ -3,7 +3,7 @@ import LocationInput from "../components/LocationInput";
 
 const Home = ({ getlocation }: { getlocation: (location: string) => void }) => {
   return (
-    <div>
+    <div className="my-10 py-5">
       <LocationInput getlocation={getlocation} />
     </div>
   );
