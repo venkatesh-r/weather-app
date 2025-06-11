@@ -20,7 +20,7 @@ const LocationInput = ({
   };
 
   return (
-    <>
+    <div className="flex justify-center">
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -35,7 +35,7 @@ const LocationInput = ({
           Submit
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

@@ -21,7 +21,6 @@ function App() {
       <h1 className="my-5">Weather Report</h1>
       <Home getlocation={getLocation} />
       <WeatherDisplay data={data} />
-      {data && JSON.stringify(data)}
       <Footer />
     </>
   );
