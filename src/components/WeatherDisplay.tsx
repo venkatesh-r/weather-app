@@ -6,19 +6,40 @@ const WeatherDisplay = ({ data }) => {
   });
 
   return (
-    <div className="flex justify-center items-center w-80 rounded-xl bg-[#4F90CF] text-white content-center p-5">
+    <>
       {data && (
-        <span>
-          <h2 className="font-bold text-2xl">Current Weather</h2>
-          <p>City: {data?.name}</p>
-          <p>Current Temperature: {(data?.main?.temp - 273).toFixed(1)}</p>
-          <p>Minimum Temperature: {(data?.main?.temp_max - 273).toFixed(0)}</p>
-          <p>Maximum Temperature: {(data?.main?.temp_min - 273).toFixed(0)}</p>
-          <p>Description: {description}</p>
-          <p>Feels like: {(data?.main?.feels_like - 273).toFixed(1)}</p>
-        </span>
+        <div className="flex justify-center">
+          <div className="flex justify-center items-center w-80 rounded-xl bg-[#ff6a00f8] text-white content-center p-5">
+            <span>
+              <h2 className="font-bold text-2xl mb-5">Current Weather</h2>
+              <p>
+                <span className="font-bold text-lg">City:</span> {data?.name}
+              </p>
+              <p>
+                <span className="font-bold text-lg">Current Temperature:</span>{" "}
+                {(data?.main?.temp - 273).toFixed(0)}
+              </p>
+              <p>
+                <span className="font-bold text-lg">Minimum Temperature:</span>{" "}
+                {(data?.main?.temp_max - 273).toFixed(0)}
+              </p>
+              <p>
+                <span className="font-bold text-lg">Maximum Temperature:</span>{" "}
+                {(data?.main?.temp_min - 273).toFixed(0)}
+              </p>
+              <p>
+                <span className="font-bold text-lg">Description:</span>{" "}
+                {description}
+              </p>
+              <p>
+                <span className="font-bold text-lg">Feels like:</span>{" "}
+                {(data?.main?.feels_like - 273).toFixed(0)}
+              </p>
+            </span>
+          </div>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
