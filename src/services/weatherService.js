@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const weatherService = (data) => {
-  console.log(data);
   return axios.get(
     "https://api.openweathermap.org/data/2.5/weather?q=" +
       data +
