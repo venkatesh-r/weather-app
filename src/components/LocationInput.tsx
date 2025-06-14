@@ -2,17 +2,25 @@ import React, { useState } from "react";
 
 interface LocationProps {
   city: string;
+  /* error: string; */
 }
 
 const LocationInput = ({
   getlocation,
 }: {
-  getlocation: (location: string) => void;
+  getlocation: (location: string, error: string) => void;
 }) => {
   const [location, setLocation] = useState<LocationProps>({ city: "" });
+  /*  const [error, setError] = useState<LocationProps>({ error: "" }); */
 
   const handleClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLocation({ city: event.target.value });
+    const inputValue = event.target.value;
+    if (/[a-zA-Z]*$/.test(inputValue)) {
+      setLocation({ city: inputValue });
+      /* setError({ error: "" }); */
+    } else {
+      /* setError({ error: "Please enter only alphabets" }); */
+    }
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
