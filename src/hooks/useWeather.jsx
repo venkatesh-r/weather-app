@@ -6,7 +6,9 @@ export const useWeather = (data) => {
   useEffect(() => {
     if (data) {
       weatherService(data).then((res) => {
-        setWeatherData(res.data);
+        setTimeout(() => {
+          setWeatherData(res.data);
+        }, 1000);
       });
     }
   }, [data]);

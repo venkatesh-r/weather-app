@@ -7,7 +7,7 @@ const WeatherDisplay = ({ data }) => {
 
   return (
     <>
-      {data && (
+      {data ? (
         <div className="flex justify-center">
           <div className="flex justify-center items-center w-80 rounded-xl bg-[#ff6a00f8] text-white content-center p-5">
             <span>
@@ -38,6 +38,8 @@ const WeatherDisplay = ({ data }) => {
             </span>
           </div>
         </div>
+      ) : (
+        <p>Loading...</p>
       )}
     </>
   );
