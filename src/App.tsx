@@ -13,13 +13,13 @@ function App() {
     setLocationData(location);
   };
 
-  const data = useWeather(locationData);
+  const { weatherData, loading } = useWeather(locationData);
 
   return (
     <>
       <Header />
       <Home getlocation={getLocation} />
-      <WeatherDisplay data={data} />
+      <WeatherDisplay weatherData={weatherData} loading={loading} />
       <Footer />
     </>
   );

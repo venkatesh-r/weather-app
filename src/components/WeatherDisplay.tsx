@@ -1,31 +1,36 @@
-import React from "react";
+import { useWeather } from "../hooks/useWeather.jsx";
 
-const WeatherDisplay = ({ data }) => {
-  const description = data?.weather?.map((val: string) => {
+const WeatherDisplay = ({ weatherData, loading }) => {
+  console.log(loading);
+
+  const description = weatherData?.weather?.map((val: string) => {
     return val?.description;
   });
 
+  if (loading) return <p className="border-red-900 text-black">Loading...</p>;
+
   return (
     <>
-      {data ? (
+      {weatherData ? (
         <div className="flex justify-center">
           <div className="flex justify-center items-center w-80 rounded-xl bg-[#ff6a00f8] text-white content-center p-5">
             <span>
               <h2 className="font-bold text-2xl mb-5">Current Weather</h2>
               <p>
-                <span className="font-bold text-lg">City:</span> {data?.name}
+                <span className="font-bold text-lg">City:</span>{" "}
+                {weatherData?.name}
               </p>
               <p>
                 <span className="font-bold text-lg">Current Temperature:</span>{" "}
-                {(data?.main?.temp - 273).toFixed(0)}
+                {(weatherData?.main?.temp - 273).toFixed(0)}
               </p>
               <p>
                 <span className="font-bold text-lg">Minimum Temperature:</span>{" "}
-                {(data?.main?.temp_max - 273).toFixed(0)}
+                {(weatherData?.main?.temp_max - 273).toFixed(0)}
               </p>
               <p>
                 <span className="font-bold text-lg">Maximum Temperature:</span>{" "}
-                {(data?.main?.temp_min - 273).toFixed(0)}
+                {(weatherData?.main?.temp_min - 273).toFixed(0)}
               </p>
               <p>
                 <span className="font-bold text-lg">Description:</span>{" "}
@@ -33,13 +38,13 @@ const WeatherDisplay = ({ data }) => {
               </p>
               <p>
                 <span className="font-bold text-lg">Feels like:</span>{" "}
-                {(data?.main?.feels_like - 273).toFixed(0)}
+                {(weatherData?.main?.feels_like - 273).toFixed(0)}
               </p>
             </span>
           </div>
         </div>
       ) : (
-        <p>Loading...</p>
+        ""
       )}
     </>
   );
