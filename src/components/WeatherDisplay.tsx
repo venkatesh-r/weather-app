@@ -1,8 +1,6 @@
 import { useWeather } from "../hooks/useWeather.jsx";
 
 const WeatherDisplay = ({ weatherData, loading }) => {
-  console.log(loading);
-
   const description = weatherData?.weather?.map((val: string) => {
     return val?.description;
   });

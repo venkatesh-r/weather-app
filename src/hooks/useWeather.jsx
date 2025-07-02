@@ -5,8 +5,9 @@ export const useWeather = (location) => {
   const [weatherData, setWeatherData] = useState();
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setLoading(true);
+    if (!location) return;
     if (location) {
+      setLoading(true);
       weatherService(location)
         .then((res) => {
           setTimeout(() => {
